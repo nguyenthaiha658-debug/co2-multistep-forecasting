@@ -21,7 +21,7 @@ Cho một chuỗi thời gian đơn biến \(y_t\), hãy dự báo \(y_{t+1},\ld
 
 ## Dữ liệu
 
-Cả hai file nằm trong `data/` và lấy từ bộ time-series của khóa học khoahochatde.com. Chi tiết trong [`data/README.md`](data/README.md).
+Cả hai file nằm trong `data/` và lấy từ bộ time-series của khóa học Viet Nguyen AI. Chi tiết trong [`data/README.md`](data/README.md).
 
 | Chuỗi | Tần suất | Độ dài | Cửa sổ $w$ | Horizon $H$ | Train / test (80/20) |
 |---|---|---:|---:|---:|---|
@@ -112,4 +112,4 @@ Kết quả được ghi vào `results/metrics.csv` và các file PNG cùng thư
 
 ## Nguồn
 
-Dựa trên bài tập của khóa học machine learning tại [khoahochatde.com](https://khoahochatde.com) (các script `recursive_ts.py` và `direct_ts.py`). Dữ liệu xe đạp gốc là UCI Bike Sharing Dataset. Phần so sánh chiến lược, sửa lỗi, thí nghiệm sai phân và phân tích kết quả được làm thêm trên nền bài tập đó.
+Dựa trên bài tập của khóa học machine learning tại Viet Nguyen AI (các script `recursive_ts.py` và `direct_ts.py`). Dữ liệu xe đạp gốc là UCI Bike Sharing Dataset. Phần so sánh chiến lược, sửa lỗi, thí nghiệm sai phân và phân tích kết quả được làm thêm trên nền bài tập đó.

@@ -7,4 +7,4 @@
   daily total (`users` summed by calendar day, 731 days).
 
 Both files are taken from the time-series datasets bundled with the
-khoahochatde.com machine-learning course.
+Viet Nguyen AI machine-learning course.
