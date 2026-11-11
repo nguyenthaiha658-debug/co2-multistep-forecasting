@@ -10,7 +10,7 @@ On CO2, a Random Forest trained on raw levels **fails** (10-step MAE 9.67, R² �
 
 The same differencing trick does **not** help on daily bike demand, which is seasonal rather than strongly trending. There, Linear Regression is best (1-step MAE 758 vs 873 for persistence).
 
-This work is based on exercises from the khoahochatde.com ML course. The course helpers `create_ts_data` mutated the input DataFrame; windowing here always returns new arrays and leaves the series untouched.
+This work is based on exercises from the Viet Nguyen AI ML course. The course helpers `create_ts_data` mutated the input DataFrame; windowing here always returns new arrays and leaves the series untouched.
 
 ## Bài toán
 
@@ -112,4 +112,4 @@ Kết quả được ghi vào `results/metrics.csv` và các file PNG cùng thư
 
 ## Nguồn
 
-Dựa trên bài tập của khóa học machine learning tại Viet Nguyen AI (các script `recursive_ts.py` và `direct_ts.py`). Dữ liệu xe đạp gốc là UCI Bike Sharing Dataset. Phần so sánh chiến lược, sửa lỗi, thí nghiệm sai phân và phân tích kết quả được làm thêm trên nền bài tập đó.
+Dựa trên bài tập của khóa học machine learning của Viet Nguyen AI (các script `recursive_ts.py` và `direct_ts.py`). Dữ liệu xe đạp gốc là UCI Bike Sharing Dataset. Phần so sánh chiến lược, sửa lỗi, thí nghiệm sai phân và phân tích kết quả được làm thêm trên nền bài tập đó.
