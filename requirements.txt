@@ -1,0 +1,5 @@
+# Pinned to the versions used to produce the numbers in the README.
+pandas==3.1.1
+numpy>=2.0
+scikit-learn==1.9.1
+matplotlib==3.11.2
