@@ -1,0 +1,738 @@
+{
+  "bike_sharing_daily": {
+    "mae": {
+      "1": {
+        "Direct / LinearRegression": 762.4604,
+        "Direct / RandomForest": 849.1654,
+        "Direct-diff / RandomForest": 808.0555,
+        "Persistence": 872.6716,
+        "Recursive / LinearRegression": 758.0168,
+        "Recursive / RandomForest": 826.4436,
+        "Recursive-diff / RandomForest": 819.3969,
+        "Seasonal naive (period=7)": 1100.6418
+      },
+      "2": {
+        "Direct / LinearRegression": 841.6692,
+        "Direct / RandomForest": 991.5504,
+        "Direct-diff / RandomForest": 1017.3189,
+        "Persistence": 1124.4328,
+        "Recursive / LinearRegression": 842.1852,
+        "Recursive / RandomForest": 989.9873,
+        "Recursive-diff / RandomForest": 1042.5411,
+        "Seasonal naive (period=7)": 1100.6045
+      },
+      "3": {
+        "Direct / LinearRegression": 872.539,
+        "Direct / RandomForest": 1007.5688,
+        "Direct-diff / RandomForest": 1097.8304,
+        "Persistence": 1247.7313,
+        "Recursive / LinearRegression": 871.9325,
+        "Recursive / RandomForest": 1050.3807,
+        "Recursive-diff / RandomForest": 1112.7393,
+        "Seasonal naive (period=7)": 1110.7388
+      },
+      "4": {
+        "Direct / LinearRegression": 890.8039,
+        "Direct / RandomForest": 1010.0438,
+        "Direct-diff / RandomForest": 1095.7195,
+        "Persistence": 1282.0373,
+        "Recursive / LinearRegression": 889.1026,
+        "Recursive / RandomForest": 1061.1944,
+        "Recursive-diff / RandomForest": 1097.7539,
+        "Seasonal naive (period=7)": 1125.3881
+      },
+      "5": {
+        "Direct / LinearRegression": 915.3527,
+        "Direct / RandomForest": 1022.6,
+        "Direct-diff / RandomForest": 1149.8456,
+        "Persistence": 1198.6269,
+        "Recursive / LinearRegression": 908.7943,
+        "Recursive / RandomForest": 1054.5529,
+        "Recursive-diff / RandomForest": 1075.5326,
+        "Seasonal naive (period=7)": 1139.6343
+      },
+      "6": {
+        "Direct / LinearRegression": 941.7704,
+        "Direct / RandomForest": 1044.2852,
+        "Direct-diff / RandomForest": 1185.1605,
+        "Persistence": 1195.194,
+        "Recursive / LinearRegression": 935.0332,
+        "Recursive / RandomForest": 1077.2162,
+        "Recursive-diff / RandomForest": 1134.2786,
+        "Seasonal naive (period=7)": 1150.6343
+      },
+      "7": {
+        "Direct / LinearRegression": 987.9036,
+        "Direct / RandomForest": 1062.7075,
+        "Direct-diff / RandomForest": 1271.2556,
+        "Persistence": 1169.903,
+        "Recursive / LinearRegression": 994.8922,
+        "Recursive / RandomForest": 1128.8205,
+        "Recursive-diff / RandomForest": 1212.8419,
+        "Seasonal naive (period=7)": 1169.903
+      },
+      "8": {
+        "Direct / LinearRegression": 1037.1467,
+        "Direct / RandomForest": 1103.2837,
+        "Direct-diff / RandomForest": 1421.9528,
+        "Persistence": 1315.4925,
+        "Recursive / LinearRegression": 1056.4729,
+        "Recursive / RandomForest": 1190.6349,
+        "Recursive-diff / RandomForest": 1354.4809,
+        "Seasonal naive (period=7)": 1202.791
+      },
+      "9": {
+        "Direct / LinearRegression": 1091.5181,
+        "Direct / RandomForest": 1185.8826,
+        "Direct-diff / RandomForest": 1499.7388,
+        "Persistence": 1389.4851,
+        "Recursive / LinearRegression": 1112.0585,
+        "Recursive / RandomForest": 1260.179,
+        "Recursive-diff / RandomForest": 1444.551,
+        "Seasonal naive (period=7)": 1235.1567
+      },
+      "10": {
+        "Direct / LinearRegression": 1118.8831,
+        "Direct / RandomForest": 1221.1386,
+        "Direct-diff / RandomForest": 1517.6206,
+        "Persistence": 1431.9254,
+        "Recursive / LinearRegression": 1131.3433,
+        "Recursive / RandomForest": 1277.848,
+        "Recursive-diff / RandomForest": 1472.3351,
+        "Seasonal naive (period=7)": 1248.791
+      },
+      "11": {
+        "Direct / LinearRegression": 1141.3761,
+        "Direct / RandomForest": 1223.516,
+        "Direct-diff / RandomForest": 1526.4,
+        "Persistence": 1467.0896,
+        "Recursive / LinearRegression": 1146.8422,
+        "Recursive / RandomForest": 1283.7628,
+        "Recursive-diff / RandomForest": 1454.1373,
+        "Seasonal naive (period=7)": 1250.3507
+      },
+      "12": {
+        "Direct / LinearRegression": 1167.1172,
+        "Direct / RandomForest": 1230.7344,
+        "Direct-diff / RandomForest": 1543.7198,
+        "Persistence": 1462.3955,
+        "Recursive / LinearRegression": 1164.8153,
+        "Recursive / RandomForest": 1323.49,
+        "Recursive-diff / RandomForest": 1421.874,
+        "Seasonal naive (period=7)": 1243.2313
+      },
+      "13": {
+        "Direct / LinearRegression": 1170.0843,
+        "Direct / RandomForest": 1262.5608,
+        "Direct-diff / RandomForest": 1568.3498,
+        "Persistence": 1440.6716,
+        "Recursive / LinearRegression": 1176.8101,
+        "Recursive / RandomForest": 1309.7216,
+        "Recursive-diff / RandomForest": 1444.2956,
+        "Seasonal naive (period=7)": 1231.6119
+      },
+      "14": {
+        "Direct / LinearRegression": 1156.2742,
+        "Direct / RandomForest": 1240.0304,
+        "Direct-diff / RandomForest": 1491.1321,
+        "Persistence": 1271.0746,
+        "Recursive / LinearRegression": 1165.8462,
+        "Recursive / RandomForest": 1279.7149,
+        "Recursive-diff / RandomForest": 1419.8663,
+        "Seasonal naive (period=7)": 1230.2015
+      }
+    },
+    "rmse": {
+      "1": {
+        "Direct / LinearRegression": 1144.3494,
+        "Direct / RandomForest": 1190.0804,
+        "Direct-diff / RandomForest": 1230.2785,
+        "Persistence": 1282.5532,
+        "Recursive / LinearRegression": 1144.1646,
+        "Recursive / RandomForest": 1179.8334,
+        "Recursive-diff / RandomForest": 1229.87,
+        "Seasonal naive (period=7)": 1619.0156
+      },
+      "2": {
+        "Direct / LinearRegression": 1270.6237,
+        "Direct / RandomForest": 1334.2373,
+        "Direct-diff / RandomForest": 1469.627,
+        "Persistence": 1592.0517,
+        "Recursive / LinearRegression": 1276.157,
+        "Recursive / RandomForest": 1343.4572,
+        "Recursive-diff / RandomForest": 1478.8674,
+        "Seasonal naive (period=7)": 1619.0143
+      },
+      "3": {
+        "Direct / LinearRegression": 1315.7865,
+        "Direct / RandomForest": 1364.2852,
+        "Direct-diff / RandomForest": 1558.6209,
+        "Persistence": 1782.52,
+        "Recursive / LinearRegression": 1320.8293,
+        "Recursive / RandomForest": 1386.0131,
+        "Recursive-diff / RandomForest": 1552.5285,
+        "Seasonal naive (period=7)": 1623.5462
+      },
+      "4": {
+        "Direct / LinearRegression": 1323.4411,
+        "Direct / RandomForest": 1367.0623,
+        "Direct-diff / RandomForest": 1547.27,
+        "Persistence": 1763.032,
+        "Recursive / LinearRegression": 1330.0329,
+        "Recursive / RandomForest": 1397.605,
+        "Recursive-diff / RandomForest": 1542.3303,
+        "Seasonal naive (period=7)": 1632.6026
+      },
+      "5": {
+        "Direct / LinearRegression": 1351.6873,
+        "Direct / RandomForest": 1386.0403,
+        "Direct-diff / RandomForest": 1587.4,
+        "Persistence": 1692.5023,
+        "Recursive / LinearRegression": 1354.669,
+        "Recursive / RandomForest": 1407.2539,
+        "Recursive-diff / RandomForest": 1509.7659,
+        "Seasonal naive (period=7)": 1652.9257
+      },
+      "6": {
+        "Direct / LinearRegression": 1387.8882,
+        "Direct / RandomForest": 1409.0413,
+        "Direct-diff / RandomForest": 1665.1081,
+        "Persistence": 1681.3376,
+        "Recursive / LinearRegression": 1390.4288,
+        "Recursive / RandomForest": 1435.896,
+        "Recursive-diff / RandomForest": 1566.479,
+        "Seasonal naive (period=7)": 1661.3029
+      },
+      "7": {
+        "Direct / LinearRegression": 1445.7545,
+        "Direct / RandomForest": 1461.3157,
+        "Direct-diff / RandomForest": 1760.7198,
+        "Persistence": 1688.5791,
+        "Recursive / LinearRegression": 1450.1789,
+        "Recursive / RandomForest": 1492.0299,
+        "Recursive-diff / RandomForest": 1664.1258,
+        "Seasonal naive (period=7)": 1688.5791
+      },
+      "8": {
+        "Direct / LinearRegression": 1504.4065,
+        "Direct / RandomForest": 1507.2373,
+        "Direct-diff / RandomForest": 1884.6332,
+        "Persistence": 1837.1778,
+        "Recursive / LinearRegression": 1519.2143,
+        "Recursive / RandomForest": 1561.2604,
+        "Recursive-diff / RandomForest": 1776.6783,
+        "Seasonal naive (period=7)": 1733.4324
+      },
+      "9": {
+        "Direct / LinearRegression": 1565.5125,
+        "Direct / RandomForest": 1578.0744,
+        "Direct-diff / RandomForest": 1996.6648,
+        "Persistence": 1917.5514,
+        "Recursive / LinearRegression": 1577.9562,
+        "Recursive / RandomForest": 1625.8747,
+        "Recursive-diff / RandomForest": 1877.4726,
+        "Seasonal naive (period=7)": 1782.3612
+      },
+      "10": {
+        "Direct / LinearRegression": 1590.4663,
+        "Direct / RandomForest": 1612.6963,
+        "Direct-diff / RandomForest": 2014.5916,
+        "Persistence": 1927.7634,
+        "Recursive / LinearRegression": 1596.4524,
+        "Recursive / RandomForest": 1641.3166,
+        "Recursive-diff / RandomForest": 1916.9653,
+        "Seasonal naive (period=7)": 1790.7598
+      },
+      "11": {
+        "Direct / LinearRegression": 1612.3236,
+        "Direct / RandomForest": 1606.1314,
+        "Direct-diff / RandomForest": 2027.3735,
+        "Persistence": 2004.9977,
+        "Recursive / LinearRegression": 1613.6737,
+        "Recursive / RandomForest": 1660.9701,
+        "Recursive-diff / RandomForest": 1934.288,
+        "Seasonal naive (period=7)": 1791.1286
+      },
+      "12": {
+        "Direct / LinearRegression": 1640.1907,
+        "Direct / RandomForest": 1616.9731,
+        "Direct-diff / RandomForest": 2020.1772,
+        "Persistence": 2032.9377,
+        "Recursive / LinearRegression": 1638.1497,
+        "Recursive / RandomForest": 1686.2395,
+        "Recursive-diff / RandomForest": 1903.2533,
+        "Seasonal naive (period=7)": 1787.6074
+      },
+      "13": {
+        "Direct / LinearRegression": 1647.6605,
+        "Direct / RandomForest": 1647.6003,
+        "Direct-diff / RandomForest": 2017.2056,
+        "Persistence": 2033.8744,
+        "Recursive / LinearRegression": 1650.1511,
+        "Recursive / RandomForest": 1688.096,
+        "Recursive-diff / RandomForest": 1885.272,
+        "Seasonal naive (period=7)": 1782.4814
+      },
+      "14": {
+        "Direct / LinearRegression": 1629.5218,
+        "Direct / RandomForest": 1640.4169,
+        "Direct-diff / RandomForest": 1906.969,
+        "Persistence": 1874.9477,
+        "Recursive / LinearRegression": 1629.7759,
+        "Recursive / RandomForest": 1665.7182,
+        "Recursive-diff / RandomForest": 1813.5549,
+        "Seasonal naive (period=7)": 1780.9769
+      }
+    },
+    "r2": {
+      "1": {
+        "Direct / LinearRegression": 0.4158,
+        "Direct / RandomForest": 0.3682,
+        "Direct-diff / RandomForest": 0.3247,
+        "Persistence": 0.2661,
+        "Recursive / LinearRegression": 0.416,
+        "Recursive / RandomForest": 0.379,
+        "Recursive-diff / RandomForest": 0.3252,
+        "Seasonal naive (period=7)": -0.1694
+      },
+      "2": {
+        "Direct / LinearRegression": 0.2795,
+        "Direct / RandomForest": 0.2055,
+        "Direct-diff / RandomForest": 0.0361,
+        "Persistence": -0.1312,
+        "Recursive / LinearRegression": 0.2732,
+        "Recursive / RandomForest": 0.1945,
+        "Recursive-diff / RandomForest": 0.024,
+        "Seasonal naive (period=7)": -0.1698
+      },
+      "3": {
+        "Direct / LinearRegression": 0.2342,
+        "Direct / RandomForest": 0.1767,
+        "Direct-diff / RandomForest": -0.0746,
+        "Persistence": -0.4055,
+        "Recursive / LinearRegression": 0.2283,
+        "Recursive / RandomForest": 0.1503,
+        "Recursive-diff / RandomForest": -0.0662,
+        "Seasonal naive (period=7)": -0.1659
+      },
+      "4": {
+        "Direct / LinearRegression": 0.2389,
+        "Direct / RandomForest": 0.1879,
+        "Direct-diff / RandomForest": -0.0403,
+        "Persistence": -0.3506,
+        "Recursive / LinearRegression": 0.2313,
+        "Recursive / RandomForest": 0.1513,
+        "Recursive-diff / RandomForest": -0.0336,
+        "Seasonal naive (period=7)": -0.1582
+      },
+      "5": {
+        "Direct / LinearRegression": 0.2531,
+        "Direct / RandomForest": 0.2146,
+        "Direct-diff / RandomForest": -0.0301,
+        "Persistence": -0.1711,
+        "Recursive / LinearRegression": 0.2498,
+        "Recursive / RandomForest": 0.1904,
+        "Recursive-diff / RandomForest": 0.0682,
+        "Seasonal naive (period=7)": -0.1169
+      },
+      "6": {
+        "Direct / LinearRegression": 0.2555,
+        "Direct / RandomForest": 0.2326,
+        "Direct-diff / RandomForest": -0.0717,
+        "Persistence": -0.0927,
+        "Recursive / LinearRegression": 0.2527,
+        "Recursive / RandomForest": 0.2031,
+        "Recursive-diff / RandomForest": 0.0515,
+        "Seasonal naive (period=7)": -0.0668
+      },
+      "7": {
+        "Direct / LinearRegression": 0.2497,
+        "Direct / RandomForest": 0.2334,
+        "Direct-diff / RandomForest": -0.1129,
+        "Persistence": -0.0236,
+        "Recursive / LinearRegression": 0.2451,
+        "Recursive / RandomForest": 0.2009,
+        "Recursive-diff / RandomForest": 0.0059,
+        "Seasonal naive (period=7)": -0.0236
+      },
+      "8": {
+        "Direct / LinearRegression": 0.2379,
+        "Direct / RandomForest": 0.2351,
+        "Direct-diff / RandomForest": -0.196,
+        "Persistence": -0.1365,
+        "Recursive / LinearRegression": 0.2229,
+        "Recursive / RandomForest": 0.1793,
+        "Recursive-diff / RandomForest": -0.0629,
+        "Seasonal naive (period=7)": -0.0118
+      },
+      "9": {
+        "Direct / LinearRegression": 0.2334,
+        "Direct / RandomForest": 0.221,
+        "Direct-diff / RandomForest": -0.247,
+        "Persistence": -0.1502,
+        "Recursive / LinearRegression": 0.2212,
+        "Recursive / RandomForest": 0.1731,
+        "Recursive-diff / RandomForest": -0.1026,
+        "Seasonal naive (period=7)": 0.0063
+      },
+      "10": {
+        "Direct / LinearRegression": 0.232,
+        "Direct / RandomForest": 0.2104,
+        "Direct-diff / RandomForest": -0.2323,
+        "Persistence": -0.1283,
+        "Recursive / LinearRegression": 0.2262,
+        "Recursive / RandomForest": 0.1821,
+        "Recursive-diff / RandomForest": -0.1157,
+        "Seasonal naive (period=7)": 0.0264
+      },
+      "11": {
+        "Direct / LinearRegression": 0.22,
+        "Direct / RandomForest": 0.226,
+        "Direct-diff / RandomForest": -0.2333,
+        "Persistence": -0.2062,
+        "Recursive / LinearRegression": 0.2187,
+        "Recursive / RandomForest": 0.1722,
+        "Recursive-diff / RandomForest": -0.1226,
+        "Seasonal naive (period=7)": 0.0374
+      },
+      "12": {
+        "Direct / LinearRegression": 0.226,
+        "Direct / RandomForest": 0.2477,
+        "Direct-diff / RandomForest": -0.1742,
+        "Persistence": -0.1891,
+        "Recursive / LinearRegression": 0.2279,
+        "Recursive / RandomForest": 0.1819,
+        "Recursive-diff / RandomForest": -0.0422,
+        "Seasonal naive (period=7)": 0.0806
+      },
+      "13": {
+        "Direct / LinearRegression": 0.2391,
+        "Direct / RandomForest": 0.2392,
+        "Direct-diff / RandomForest": -0.1405,
+        "Persistence": -0.1594,
+        "Recursive / LinearRegression": 0.2368,
+        "Recursive / RandomForest": 0.2013,
+        "Recursive-diff / RandomForest": 0.0038,
+        "Seasonal naive (period=7)": 0.1095
+      },
+      "14": {
+        "Direct / LinearRegression": 0.2679,
+        "Direct / RandomForest": 0.2581,
+        "Direct-diff / RandomForest": -0.0026,
+        "Persistence": 0.0308,
+        "Recursive / LinearRegression": 0.2677,
+        "Recursive / RandomForest": 0.235,
+        "Recursive-diff / RandomForest": 0.0932,
+        "Seasonal naive (period=7)": 0.1255
+      }
+    }
+  },
+  "co2": {
+    "mae": {
+      "1": {
+        "Direct / LinearRegression": 0.3518,
+        "Direct / RandomForest": 5.5315,
+        "Direct-diff / RandomForest": 0.3382,
+        "Persistence": 0.4065,
+        "Recursive / LinearRegression": 0.3518,
+        "Recursive / RandomForest": 5.5117,
+        "Recursive-diff / RandomForest": 0.3382,
+        "Seasonal naive (period=52)": 1.6547
+      },
+      "2": {
+        "Direct / LinearRegression": 0.4781,
+        "Direct / RandomForest": 6.4942,
+        "Direct-diff / RandomForest": 0.4383,
+        "Persistence": 0.6391,
+        "Recursive / LinearRegression": 0.4813,
+        "Recursive / RandomForest": 5.6259,
+        "Recursive-diff / RandomForest": 0.4432,
+        "Seasonal naive (period=52)": 1.6558
+      },
+      "3": {
+        "Direct / LinearRegression": 0.5863,
+        "Direct / RandomForest": 7.2255,
+        "Direct-diff / RandomForest": 0.5359,
+        "Persistence": 0.8717,
+        "Recursive / LinearRegression": 0.5956,
+        "Recursive / RandomForest": 5.567,
+        "Recursive-diff / RandomForest": 0.5345,
+        "Seasonal naive (period=52)": 1.6574
+      },
+      "4": {
+        "Direct / LinearRegression": 0.7271,
+        "Direct / RandomForest": 7.8776,
+        "Direct-diff / RandomForest": 0.6454,
+        "Persistence": 1.1045,
+        "Recursive / LinearRegression": 0.7541,
+        "Recursive / RandomForest": 5.603,
+        "Recursive-diff / RandomForest": 0.6466,
+        "Seasonal naive (period=52)": 1.6592
+      },
+      "5": {
+        "Direct / LinearRegression": 0.8798,
+        "Direct / RandomForest": 8.3298,
+        "Direct-diff / RandomForest": 0.781,
+        "Persistence": 1.3426,
+        "Recursive / LinearRegression": 0.9218,
+        "Recursive / RandomForest": 5.6608,
+        "Recursive-diff / RandomForest": 0.7816,
+        "Seasonal naive (period=52)": 1.6618
+      },
+      "6": {
+        "Direct / LinearRegression": 1.0514,
+        "Direct / RandomForest": 8.7186,
+        "Direct-diff / RandomForest": 0.9029,
+        "Persistence": 1.5741,
+        "Recursive / LinearRegression": 1.1065,
+        "Recursive / RandomForest": 5.795,
+        "Recursive-diff / RandomForest": 0.9287,
+        "Seasonal naive (period=52)": 1.6647
+      },
+      "7": {
+        "Direct / LinearRegression": 1.2115,
+        "Direct / RandomForest": 8.993,
+        "Direct-diff / RandomForest": 1.034,
+        "Persistence": 1.7993,
+        "Recursive / LinearRegression": 1.293,
+        "Recursive / RandomForest": 5.8774,
+        "Recursive-diff / RandomForest": 1.0735,
+        "Seasonal naive (period=52)": 1.6674
+      },
+      "8": {
+        "Direct / LinearRegression": 1.3881,
+        "Direct / RandomForest": 9.1731,
+        "Direct-diff / RandomForest": 1.1487,
+        "Persistence": 2.017,
+        "Recursive / LinearRegression": 1.4866,
+        "Recursive / RandomForest": 5.9476,
+        "Recursive-diff / RandomForest": 1.2419,
+        "Seasonal naive (period=52)": 1.667
+      },
+      "9": {
+        "Direct / LinearRegression": 1.5696,
+        "Direct / RandomForest": 9.4842,
+        "Direct-diff / RandomForest": 1.2751,
+        "Persistence": 2.2248,
+        "Recursive / LinearRegression": 1.7049,
+        "Recursive / RandomForest": 6.0078,
+        "Recursive-diff / RandomForest": 1.4486,
+        "Seasonal naive (period=52)": 1.6688
+      },
+      "10": {
+        "Direct / LinearRegression": 1.7452,
+        "Direct / RandomForest": 9.6733,
+        "Direct-diff / RandomForest": 1.3967,
+        "Persistence": 2.4217,
+        "Recursive / LinearRegression": 1.9262,
+        "Recursive / RandomForest": 6.0887,
+        "Recursive-diff / RandomForest": 1.6893,
+        "Seasonal naive (period=52)": 1.6723
+      }
+    },
+    "rmse": {
+      "1": {
+        "Direct / LinearRegression": 0.4602,
+        "Direct / RandomForest": 6.9513,
+        "Direct-diff / RandomForest": 0.44,
+        "Persistence": 0.5145,
+        "Recursive / LinearRegression": 0.46,
+        "Recursive / RandomForest": 6.9333,
+        "Recursive-diff / RandomForest": 0.4405,
+        "Seasonal naive (period=52)": 1.8483
+      },
+      "2": {
+        "Direct / LinearRegression": 0.6214,
+        "Direct / RandomForest": 7.911,
+        "Direct-diff / RandomForest": 0.5801,
+        "Persistence": 0.7679,
+        "Recursive / LinearRegression": 0.6242,
+        "Recursive / RandomForest": 7.0065,
+        "Recursive-diff / RandomForest": 0.5834,
+        "Seasonal naive (period=52)": 1.8488
+      },
+      "3": {
+        "Direct / LinearRegression": 0.7552,
+        "Direct / RandomForest": 8.6275,
+        "Direct-diff / RandomForest": 0.7045,
+        "Persistence": 1.0028,
+        "Recursive / LinearRegression": 0.7637,
+        "Recursive / RandomForest": 6.9016,
+        "Recursive-diff / RandomForest": 0.7136,
+        "Seasonal naive (period=52)": 1.8492
+      },
+      "4": {
+        "Direct / LinearRegression": 0.9246,
+        "Direct / RandomForest": 9.2566,
+        "Direct-diff / RandomForest": 0.8332,
+        "Persistence": 1.2607,
+        "Recursive / LinearRegression": 0.9418,
+        "Recursive / RandomForest": 6.9051,
+        "Recursive-diff / RandomForest": 0.86,
+        "Seasonal naive (period=52)": 1.8499
+      },
+      "5": {
+        "Direct / LinearRegression": 1.1182,
+        "Direct / RandomForest": 9.6747,
+        "Direct-diff / RandomForest": 0.9946,
+        "Persistence": 1.5226,
+        "Recursive / LinearRegression": 1.1433,
+        "Recursive / RandomForest": 6.9275,
+        "Recursive-diff / RandomForest": 1.0486,
+        "Seasonal naive (period=52)": 1.8519
+      },
+      "6": {
+        "Direct / LinearRegression": 1.3172,
+        "Direct / RandomForest": 10.0301,
+        "Direct-diff / RandomForest": 1.1532,
+        "Persistence": 1.7798,
+        "Recursive / LinearRegression": 1.3561,
+        "Recursive / RandomForest": 7.0308,
+        "Recursive-diff / RandomForest": 1.2595,
+        "Seasonal naive (period=52)": 1.8529
+      },
+      "7": {
+        "Direct / LinearRegression": 1.5109,
+        "Direct / RandomForest": 10.2664,
+        "Direct-diff / RandomForest": 1.2949,
+        "Persistence": 2.0231,
+        "Recursive / LinearRegression": 1.564,
+        "Recursive / RandomForest": 7.0707,
+        "Recursive-diff / RandomForest": 1.4832,
+        "Seasonal naive (period=52)": 1.8538
+      },
+      "8": {
+        "Direct / LinearRegression": 1.7175,
+        "Direct / RandomForest": 10.4112,
+        "Direct-diff / RandomForest": 1.4578,
+        "Persistence": 2.2577,
+        "Recursive / LinearRegression": 1.7862,
+        "Recursive / RandomForest": 7.1023,
+        "Recursive-diff / RandomForest": 1.7511,
+        "Seasonal naive (period=52)": 1.8533
+      },
+      "9": {
+        "Direct / LinearRegression": 1.9266,
+        "Direct / RandomForest": 10.6972,
+        "Direct-diff / RandomForest": 1.6086,
+        "Persistence": 2.4831,
+        "Recursive / LinearRegression": 2.0157,
+        "Recursive / RandomForest": 7.1287,
+        "Recursive-diff / RandomForest": 2.0504,
+        "Seasonal naive (period=52)": 1.8547
+      },
+      "10": {
+        "Direct / LinearRegression": 2.1306,
+        "Direct / RandomForest": 10.8582,
+        "Direct-diff / RandomForest": 1.7678,
+        "Persistence": 2.7003,
+        "Recursive / LinearRegression": 2.2493,
+        "Recursive / RandomForest": 7.1782,
+        "Recursive-diff / RandomForest": 2.3833,
+        "Seasonal naive (period=52)": 1.8564
+      }
+    },
+    "r2": {
+      "1": {
+        "Direct / LinearRegression": 0.991,
+        "Direct / RandomForest": -1.0476,
+        "Direct-diff / RandomForest": 0.9918,
+        "Persistence": 0.9888,
+        "Recursive / LinearRegression": 0.991,
+        "Recursive / RandomForest": -1.037,
+        "Recursive-diff / RandomForest": 0.9918,
+        "Seasonal naive (period=52)": 0.8552
+      },
+      "2": {
+        "Direct / LinearRegression": 0.9836,
+        "Direct / RandomForest": -1.6541,
+        "Direct-diff / RandomForest": 0.9857,
+        "Persistence": 0.975,
+        "Recursive / LinearRegression": 0.9835,
+        "Recursive / RandomForest": -1.0819,
+        "Recursive-diff / RandomForest": 0.9856,
+        "Seasonal naive (period=52)": 0.855
+      },
+      "3": {
+        "Direct / LinearRegression": 0.9758,
+        "Direct / RandomForest": -2.1598,
+        "Direct-diff / RandomForest": 0.9789,
+        "Persistence": 0.9573,
+        "Recursive / LinearRegression": 0.9752,
+        "Recursive / RandomForest": -1.022,
+        "Recursive-diff / RandomForest": 0.9784,
+        "Seasonal naive (period=52)": 0.8548
+      },
+      "4": {
+        "Direct / LinearRegression": 0.9637,
+        "Direct / RandomForest": -2.636,
+        "Direct-diff / RandomForest": 0.9705,
+        "Persistence": 0.9326,
+        "Recursive / LinearRegression": 0.9624,
+        "Recursive / RandomForest": -1.0233,
+        "Recursive-diff / RandomForest": 0.9686,
+        "Seasonal naive (period=52)": 0.8548
+      },
+      "5": {
+        "Direct / LinearRegression": 0.947,
+        "Direct / RandomForest": -2.966,
+        "Direct-diff / RandomForest": 0.9581,
+        "Persistence": 0.9018,
+        "Recursive / LinearRegression": 0.9446,
+        "Recursive / RandomForest": -1.0334,
+        "Recursive-diff / RandomForest": 0.9534,
+        "Seasonal naive (period=52)": 0.8547
+      },
+      "6": {
+        "Direct / LinearRegression": 0.9266,
+        "Direct / RandomForest": -3.2581,
+        "Direct-diff / RandomForest": 0.9437,
+        "Persistence": 0.8659,
+        "Recursive / LinearRegression": 0.9222,
+        "Recursive / RandomForest": -1.0922,
+        "Recursive-diff / RandomForest": 0.9329,
+        "Seasonal naive (period=52)": 0.8547
+      },
+      "7": {
+        "Direct / LinearRegression": 0.9035,
+        "Direct / RandomForest": -3.4534,
+        "Direct-diff / RandomForest": 0.9292,
+        "Persistence": 0.8271,
+        "Recursive / LinearRegression": 0.8966,
+        "Recursive / RandomForest": -1.1124,
+        "Recursive-diff / RandomForest": 0.907,
+        "Seasonal naive (period=52)": 0.8548
+      },
+      "8": {
+        "Direct / LinearRegression": 0.8757,
+        "Direct / RandomForest": -3.5664,
+        "Direct-diff / RandomForest": 0.9105,
+        "Persistence": 0.7853,
+        "Recursive / LinearRegression": 0.8656,
+        "Recursive / RandomForest": -1.1251,
+        "Recursive-diff / RandomForest": 0.8708,
+        "Seasonal naive (period=52)": 0.8553
+      },
+      "9": {
+        "Direct / LinearRegression": 0.8441,
+        "Direct / RandomForest": -3.8065,
+        "Direct-diff / RandomForest": 0.8913,
+        "Persistence": 0.741,
+        "Recursive / LinearRegression": 0.8293,
+        "Recursive / RandomForest": -1.1346,
+        "Recursive-diff / RandomForest": 0.8234,
+        "Seasonal naive (period=52)": 0.8555
+      },
+      "10": {
+        "Direct / LinearRegression": 0.8099,
+        "Direct / RandomForest": -3.9378,
+        "Direct-diff / RandomForest": 0.8691,
+        "Persistence": 0.6946,
+        "Recursive / LinearRegression": 0.7881,
+        "Recursive / RandomForest": -1.158,
+        "Recursive-diff / RandomForest": 0.7621,
+        "Seasonal naive (period=52)": 0.8557
+      }
+    }
+  }
+}
