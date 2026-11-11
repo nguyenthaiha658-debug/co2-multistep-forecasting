@@ -1,50 +1,69 @@
-# Dự báo nhiều bước: đệ quy và trực tiếp
+# Dự báo nhiều bước phía trước
 
-**Recursive vs direct multi-step forecasting**
+**Forecasting several weeks or days ahead**
 
 ## English summary
 
-This project compares two standard ways of forecasting several steps ahead — a **recursive** strategy (one one-step model rolled forward) and a **direct** strategy (a separate model for each horizon) — using Linear Regression and Random Forest. The series are weekly Mauna Loa CO2 and daily bike-sharing rentals (the hourly UCI series, aggregated). Persistence and seasonal-naive forecasts are included as baselines.
+This project predicts several future values of a series, not just the next one.
 
-On CO2, a Random Forest trained on raw levels **fails** (10-step MAE 9.67, R² −3.94): the test period continues the upward trend beyond any target the forest saw in training, and trees cannot extrapolate. Training the forest on first differences and integrating the predicted changes back onto the last observed level fixes that. The differenced direct forest then has the best 10-step MAE, **1.40**, ahead of direct Linear Regression at **1.75**. Direct models degrade more slowly than recursive ones as the horizon grows, as expected, because they do not feed their own errors back in.
+I compare two ways to do that:
 
-The same differencing trick does **not** help on daily bike demand, which is seasonal rather than strongly trending. There, Linear Regression is best (1-step MAE 758 vs 873 for persistence).
+- Train one model that predicts the next step. Then feed each prediction back in to get further steps. In the tables this is called **recursive**.
+- Predict each future step with its own model. In the tables this is called **direct**.
 
-This work is based on exercises from the Viet Nguyen AI ML course. The course helpers `create_ts_data` mutated the input DataFrame; windowing here always returns new arrays and leaves the series untouched.
+I use Linear Regression and Random Forest. The data are weekly CO2 at Mauna Loa and daily bike-rental counts. I also compare with two simple baselines: repeat the last value, and repeat the value from the same time last year (or last week).
+
+On CO2, a Random Forest trained on the actual CO2 level **fails** (10-step MAE 9.67, R² −3.94). Later years are higher than anything the model saw while training. A tree model cannot invent values outside that range.
+
+A better idea is: predict the change from last week, then add it back to the last real value. That version of Random Forest gets the best 10-step MAE, **1.40**. Linear Regression that uses a separate model for each step gets **1.75**. Predicting each step with its own model also gets worse more slowly as we look further ahead, because it does not reuse its own mistakes.
+
+The same “predict the change, then add it back” idea does **not** help on daily bike rentals. That series goes up and down with the week. It does not keep climbing like CO2. There, Linear Regression is best (1-step MAE 758 vs 873 if we just repeat the last value).
+
+This work is based on exercises from the Viet Nguyen AI machine learning course. The course code changed the original data table while building the input windows. The code here does not.
 
 ## Bài toán
 
-Cho một chuỗi thời gian đơn biến \(y_t\), hãy dự báo \(y_{t+1},\ldots,y_{t+H}\) từ một cửa sổ \(w\) giá trị vừa quan sát. Hai chiến lược được so sánh công bằng, cùng cửa sổ, cùng tập train/test chia theo thời gian:
+Cho một chuỗi số theo thời gian, hãy đoán vài giá trị phía trước, không chỉ bước kế tiếp.
 
-- **Đệ quy (recursive):** huấn luyện một mô hình một bước. Khi dự báo $H$ bước, đầu ra được đưa trở lại cửa sổ, nên sai số có thể cộng dồn.
-- **Trực tiếp (direct):** huấn luyện $H$ mô hình độc lập; mô hình $h$ học ánh xạ cửa sổ $\to y_{t+h}$. Không dùng dự báo của chính mình làm đầu vào.
+Tôi so sánh hai cách, với cùng cửa sổ dữ liệu cũ và cùng cách chia tập học / tập kiểm tra theo thời gian:
+
+- **Dùng lại dự báo (recursive):** học một mô hình để đoán bước kế tiếp. Muốn đoán xa hơn thì đưa dự báo vừa có trở lại làm đầu vào. Sai số có thể cộng dồn.
+- **Mỗi bước một mô hình (direct):** học một mô hình riêng cho từng bước tương lai. Cách này không dùng dự báo của chính nó làm đầu vào.
 
 ## Dữ liệu
 
-Cả hai file nằm trong `data/` và lấy từ bộ time-series của khóa học Viet Nguyen AI. Chi tiết trong [`data/README.md`](data/README.md).
+Hai file nằm trong `data/` và lấy từ khóa học Viet Nguyen AI. Chi tiết trong [`data/README.md`](data/README.md).
 
 | Chuỗi | Tần suất | Độ dài | Cửa sổ $w$ | Horizon $H$ | Train / test (80/20) |
 |---|---|---:|---:|---:|---|
 | CO2 (Mauna Loa) | tuần, 1958–2001 | 2,284 (nội suy tuyến tính 59 tuần thiếu) | 12 | 10 | 1,827 / 457 |
 | Bike sharing | ngày (cộng `users` theo ngày từ chuỗi giờ) | 731 ngày, 2011–2012 | 14 | 14 | 584 / 147 |
 
-Đánh giá walk-forward: với mỗi thời điểm gốc $t$ sao cho $t+1,\ldots,t+H$ nằm trong tập test, mô hình nhận cửa sổ thật kết thúc tại $t$ (có thể gồm vài điểm cuối tập train) rồi dự báo $H$ bước.
+80% đầu dùng để học, 20% sau dùng để kiểm tra. Với mỗi thời điểm trong tập kiểm tra, mô hình nhìn các giá trị thật vừa xảy ra rồi đoán sẵn một chuỗi phía trước. Tôi đo sai số ở bước 1, bước 2, … cho đến hết khoảng dự báo.
 
-## Phương pháp
+Trong bảng kết quả:
 
-- Cửa sổ trượt được tạo bằng mảng mới, **không sửa** Series đầu vào (đây là lỗi của `create_ts_data` trong script gốc). Có bài kiểm tra trong `tests/test_windows.py`.
-- Mô hình: `LinearRegression` và `RandomForestRegressor` (200 cây, `min_samples_leaf=2`).
-- Baseline: persistence (lặp giá trị cuối) và seasonal naive (chu kỳ 52 tuần với CO2, 7 ngày với xe đạp).
-- Mở rộng thêm: huấn luyện Random Forest trên **sai phân bậc một**, rồi cộng dồn thay đổi dự báo vào mức quan sát cuối — để kiểm tra giả thuyết cây không nội suy được xu hướng.
-- Metric theo từng horizon: MAE, RMSE, R².
+- Recursive = dùng lại dự báo để đoán bước sau
+- Direct = mỗi bước tương lai có mô hình riêng
+- diff = đoán mức thay đổi, rồi cộng trở lại giá trị thật cuối cùng
+- Persistence = lặp lại giá trị vừa thấy
+- Seasonal naive = lặp lại giá trị cùng kỳ năm trước (CO2) hoặc tuần trước (xe đạp)
+
+## Cách làm
+
+- Cửa sổ dữ liệu được tạo trên bản sao. Chuỗi gốc **không bị sửa**. Script gốc của khóa học có lỗi này. Có bài kiểm tra trong `tests/test_windows.py`.
+- Mô hình: Linear Regression và Random Forest (200 cây).
+- Hai cách đơn giản để so sánh: lặp giá trị cuối, và lặp giá trị cùng kỳ (52 tuần với CO2, 7 ngày với xe đạp).
+- Thêm một thử nghiệm: đoán mức thay đổi so với tuần (hoặc ngày) trước, rồi cộng trở lại giá trị thật cuối cùng. Ý tưởng này dùng để kiểm tra việc cây không đoán được số lớn hơn những gì nó đã thấy lúc học.
+- Với mỗi bước dự báo, tôi ghi MAE, RMSE và R². MAE là sai số trung bình, càng nhỏ càng tốt.
 
 ## Kết quả
 
-Số liệu dưới đây lấy từ lần chạy thật, lưu tại `results/metrics.csv`.
+Các số dưới đây lấy từ lần chạy thật, lưu tại `results/metrics.csv`.
 
 ### CO2 (đơn vị: ppm)
 
-MAE tại một số horizon đại diện:
+MAE tại một số bước đại diện:
 
 | Phương pháp | h=1 | h=5 | h=10 |
 |---|---:|---:|---:|
@@ -63,14 +82,14 @@ R² tại h=10: Direct-diff RF **0.869**, Direct LR 0.810, Recursive LR 0.788, D
 
 ![Dự báo 10 bước từ một gốc nằm sâu trong tập test, khi CO2 đã vượt khỏi miền giá trị lúc train](results/co2_forecast_late.png)
 
-Quan sát:
+Ý nghĩa chính:
 
-- Linear Regression đã khá tốt vì chuỗi CO2 gần như là xu hướng tăng cộng mùa vụ tuần, dễ xấp xỉ tuyến tính trên cửa sổ 12 tuần. Chiến lược trực tiếp kém đi chậm hơn chiến lược đệ quy khi $h$ tăng (MAE h=10: 1.75 so với 1.93).
-- Random Forest học trên **mức gốc** thất bại: tập test (1993–2001) tiếp tục đi lên trên mức cao nhất của tập train, trong khi cây không thể dự báo ngoài miền giá trị đã thấy. Đường dự báo từ một gốc năm 1999 nằm kẹt quanh 355–359 ppm, thấp hơn thực tế khoảng 365 ppm.
-- Cùng mô hình đó, học trên sai phân rồi cộng dồn lại, trở thành phương pháp tốt nhất. Direct-diff RF thắng Direct LR ở mọi horizon đã đo. Recursive-diff RF gần bằng ở vài bước đầu, sau đó kém hơn vì sai số bị đưa trở lại cửa sổ — đúng với lý thuyết so sánh hai chiến lược.
-- Seasonal naive gần như phẳng theo horizon (MAE ≈ 1.66) và bắt đầu hơn persistence từ khoảng h=7, nhưng vẫn kém các mô hình đã “sửa” xu hướng.
+- Linear Regression đã khá tốt. Chuỗi CO2 vừa tăng dần, vừa có nhịp theo mùa, nên dễ học từ 12 tuần vừa rồi. Cách “mỗi bước một mô hình” kém đi chậm hơn cách “dùng lại dự báo” khi nhìn xa hơn (MAE ở bước 10: 1.75 so với 1.93).
+- Random Forest học trên **mức CO2 gốc** thì thất bại. Tập kiểm tra (1993–2001) vẫn tăng và cao hơn mức lớn nhất lúc học. Mô hình dạng cây không đoán được số nằm ngoài khoảng đó. Đường dự báo từ một thời điểm năm 1999 kẹt quanh 355–359 ppm, trong khi thực tế khoảng 365 ppm.
+- Cùng mô hình đó, nếu đoán mức thay đổi rồi cộng trở lại, lại thành cách tốt nhất. Direct-diff RF hơn Direct LR ở mọi bước đã đo. Recursive-diff RF gần bằng ở vài bước đầu, rồi kém hơn vì nó đưa sai số của chính mình trở lại. Đây đúng như kỳ vọng khi so hai cách dự báo.
+- Cách lặp giá trị cùng kỳ năm trước gần như không đổi theo số bước (MAE ≈ 1.66). Từ khoảng bước 7, nó hơn cách chỉ lặp giá trị cuối. Vẫn kém các mô hình đã xử lý được xu hướng tăng.
 
-Biểu đồ đầy đủ, gồm cả hai đường RF mức gốc, nằm ở `results/co2_mae_vs_horizon.png`.
+Biểu đồ đầy đủ, gồm cả hai đường RF học trên mức gốc, nằm ở `results/co2_mae_vs_horizon.png`.
 
 ### Bike sharing (tổng lượt thuê mỗi ngày)
 
@@ -87,16 +106,16 @@ Biểu đồ đầy đủ, gồm cả hai đường RF mức gốc, nằm ở `r
 
 ![MAE theo horizon trên nhu cầu thuê xe đạp theo ngày](results/bike_sharing_daily_mae_vs_horizon.png)
 
-Ở đây Linear Regression là tốt nhất; đệ quy và trực tiếp gần như trùng nhau ở vài bước đầu, trực tiếp nhỉnh hơn một chút khi $h$ lớn. Sai phân **không giúp** Random Forest: chuỗi nhu cầu theo ngày có tính mùa và dao động quanh một mức, không phải xu hướng tăng dài hạn như CO2, nên học trên mức gốc phù hợp hơn. Đây là lý do nên thử cùng một ý tưởng trên hơn một chuỗi, chứ không kết luận từ mỗi CO2.
+Ở đây Linear Regression là tốt nhất. Hai cách dự báo gần như trùng nhau ở vài bước đầu. Cách “mỗi bước một mô hình” nhỉnh hơn một chút khi nhìn xa. Đoán mức thay đổi rồi cộng trở lại **không giúp** Random Forest: lượt thuê theo ngày lên xuống theo tuần, không phải một đường tăng dài hạn như CO2. Vì vậy nên thử cùng một ý tưởng trên hơn một chuỗi, chứ không kết luận từ mỗi CO2.
 
-## Những gì khác với script gốc của khóa học
+## Khác gì so với bài tập gốc
 
-- Viết lại `create_ts_data` để không mutate DataFrame đầu vào; có test kiểm tra.
-- So sánh đệ quy và trực tiếp trên cùng giao thức, báo cáo MAE / RMSE / R² **theo từng horizon**, không chỉ một horizon cố định.
-- Thêm Random Forest (script gốc import nhưng không dùng), cộng baseline persistence và seasonal naive.
-- Chạy thêm trên bike sharing (cộng theo ngày) chứ không chỉ CO2.
-- Thí nghiệm follow-up: RF trên sai phân, sau khi quan sát RF mức gốc thất bại vì không nội suy được xu hướng.
-- Repo có cấu trúc, biểu đồ và số liệu tái lập được.
+- Viết lại phần tạo cửa sổ dữ liệu để không sửa chuỗi gốc. Có bài kiểm tra.
+- So sánh hai cách dự báo trên cùng một quy trình. Báo cáo sai số ở từng bước, không chỉ một bước cố định.
+- Thêm Random Forest (script gốc có import nhưng không dùng), cùng hai cách đoán đơn giản ở trên.
+- Chạy thêm trên dữ liệu thuê xe đạp (cộng theo ngày), không chỉ CO2.
+- Thêm thử nghiệm: đoán mức thay đổi rồi cộng trở lại, sau khi thấy Random Forest học trên mức gốc bị thất bại.
+- Repo có cấu trúc rõ, có biểu đồ và số liệu chạy lại được.
 
 ## Cách chạy
 
@@ -108,8 +127,10 @@ python tests/test_windows.py
 python scripts/run_experiments.py
 ```
 
-Kết quả được ghi vào `results/metrics.csv` và các file PNG cùng thư mục. Toàn bộ lần chạy trên máy này mất khoảng 10 phút, chủ yếu vì đánh giá walk-forward từng gốc với Random Forest.
+Kết quả được ghi vào `results/metrics.csv` và các file ảnh cùng thư mục. Lần chạy trên máy này mất khoảng 10 phút, chủ yếu vì Random Forest phải đoán nhiều thời điểm, từng điểm một.
 
 ## Nguồn
 
-Dựa trên bài tập của khóa học machine learning của Viet Nguyen AI (các script `recursive_ts.py` và `direct_ts.py`). Dữ liệu xe đạp gốc là UCI Bike Sharing Dataset. Phần so sánh chiến lược, sửa lỗi, thí nghiệm sai phân và phân tích kết quả được làm thêm trên nền bài tập đó.
+This work is based on exercises from the Viet Nguyen AI machine learning course.
+
+Dựa trên bài tập của khóa học machine learning của Viet Nguyen AI (các script `recursive_ts.py` và `direct_ts.py`). Dữ liệu xe đạp gốc là UCI Bike Sharing Dataset. Phần so sánh hai cách dự báo, sửa lỗi, thử nghiệm đoán mức thay đổi và phân tích kết quả được làm thêm trên nền bài tập đó.
